@@ -13,8 +13,6 @@ A Dart/Flutter package to convert Gregorian dates to the Myanmar calendar, suppo
   - Shan (Tai) (`my_SHN`)
   - S'gaw Karen (`my_KSW`)
 - Easy integration with Flutter widgets.
-- Customizable font selection between `Pyidaungsu` and `Zawgyi-One`.
-
 ## Installation
 
 Add `myanmar_calendar` to your `pubspec.yaml`:
