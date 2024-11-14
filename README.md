@@ -6,7 +6,7 @@ A Dart/Flutter package to convert Gregorian dates to the Myanmar calendar, suppo
 
 - Convert Gregorian dates to Myanmar calendar dates.
 - Support for multiple languages:
-  - English (UK)
+  - English (`en_GB`)
   - Myanmar Unicode (`my_MM`)
   - Zawgyi-One (`my_ZG1`)
   - Mon (`my_MNW`)
@@ -19,7 +19,7 @@ Add `myanmar_calendar` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  myanmar_calendar: ^1.0.0
+  myanmar_calendar: ^1.0.2
 ```
 
 Then run:
@@ -91,3 +91,10 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 
 ## Contact
 For any inquiries or support, please contact aungmo@gmail.com.
+
+## Credits
+
+This project uses an adapted version of the calendar logic from the following repository:
+- **mmcal** - A JavaScript calendar library by [yan9a](https://github.com/yan9a/mmcal)
+
+The original code was written in JavaScript and has been converted to Dart for use in this Flutter application.

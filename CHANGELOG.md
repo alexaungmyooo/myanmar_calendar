@@ -1,12 +1,13 @@
 
-### **b. CHANGELOG.md**
+## [1.0.2] - 2024-11-14
+### Added
+- Updated the `LICENSE` and `README.md` files to reflect proper attribution and usage instructions.
 
-Document the changes, improvements, and bug fixes.
 
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+## [1.0.1] - 2024-11-14
+### Added
+- `CHANGELOG.md` to document the updates and changes.
+- Updated `README.md` for better clarity and usage instructions.
 
 ## [1.0.0] - 2024-11-14
 ### Added
