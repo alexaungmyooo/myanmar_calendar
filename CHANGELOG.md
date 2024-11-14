@@ -8,7 +8,7 @@ Document the changes, improvements, and bug fixes.
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0] - 2024-XX-XX
+## [1.0.0] - 2024-11-14
 ### Added
 - Initial release with support for:
   - English (UK)

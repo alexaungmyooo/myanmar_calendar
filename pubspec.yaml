@@ -1,8 +1,8 @@
 name: myanmar_calendar
 description: A Dart/Flutter package to convert Gregorian dates to the Myanmar calendar, supporting multiple languages and font encodings.
-version: 0.0.1
+version: 1.0.0
 homepage: https://www.codedezk.com/
-repository: 
+repository: https://github.com/alexaungmyooo/myanmar_calendar.git
 environment:
   sdk: ^3.5.4
   flutter: ">=1.17.0"
