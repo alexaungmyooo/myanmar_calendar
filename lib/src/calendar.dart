@@ -1,18 +1,26 @@
-// lib/src/calendar.dart
-
 import 'package:myanmar_calendar/src/language_dictionary.dart';
 
+/// A class for working with the Myanmar calendar system.
+///
+/// Provides functionality for converting Gregorian dates into the Myanmar
+/// calendar format with language-specific support.
 class MyanmarCalendar {
+  /// The Myanmar calendar number (internal usage).
   int mcNo = 0;
+
+  /// A dictionary containing language-specific strings for the Myanmar calendar.
   Map<String, String> languageDictionary = {};
 
-  /// Maps language string to language code.
+  /// Maps a language string to its corresponding language code.
+  ///
+  /// The [lang] parameter is the language string (e.g., "en_gb" for English,
+  /// "my_mm" for Myanmar Unicode). Returns an integer representing the language code.
   int _mapLanguageStringToCode(String lang) {
     switch (lang.toLowerCase()) {
       case "en_gb": // English
         return 0;
       case "my_mm": // Myanmar Unicode
-        return 1; 
+        return 1;
       case "my_zg1": // Zawgyi-One
         return 2;
       case "my_mnw": // Mon language
@@ -21,15 +29,18 @@ class MyanmarCalendar {
         return 4;
       case "my_ksw": // S'gaw Karen
         return 5;
-
       default:
         return 1; // Default to Myanmar Unicode
     }
   }
 
+  /// Creates a new instance of [MyanmarCalendar].
   MyanmarCalendar();
 
   /// Returns the current Myanmar date as a formatted string.
+  ///
+  /// The [languageCode] parameter specifies the language (default is 1, Myanmar Unicode).
+  /// Returns a string containing the Myanmar calendar date.
   String getCalendar({int languageCode = 1}) {
     try {
       languageDictionary = LanguageDictionary.getLanguageCatalog(languageCode);
@@ -40,14 +51,20 @@ class MyanmarCalendar {
     }
   }
 
-  /// Returns Myanmar date string for a specific language.
+  /// Returns the Myanmar date string for a specific language.
+  ///
+  /// The [lang] parameter specifies the language as a string (e.g., "en_gb").
+  /// Returns a string with the Myanmar date in the specified language.
   String getMyanmarDateForLanguage(String lang) {
     int languageCode = _mapLanguageStringToCode(lang);
     languageDictionary = LanguageDictionary.getLanguageCatalog(languageCode);
     return getMyanmarDateString(languageCode);
   }
 
-  /// Returns Myanmar date string for a given language code.
+  /// Returns the Myanmar date string for a given language code.
+  ///
+  /// The [languageCode] parameter specifies the language code as an integer.
+  /// Returns the formatted Myanmar date as a string.
   String getMyanmarDateString(int languageCode) {
     DateTime currentDate = DateTime.now();
     int gregorianYear = currentDate.year;
@@ -127,6 +144,10 @@ class MyanmarCalendar {
     return result + languageDictionary['.']!;
   }
 
+  /// Converts a Gregorian date to its corresponding Julian Day.
+  ///
+  /// The [year], [month], and [day] parameters represent the Gregorian date.
+  /// Returns the Julian Day as a [double].
   double gregorianToJulianDay(int year, int month, int day) {
     int a = ((14 - month) ~/ 12);
     int y = year + 4800 - a;
@@ -140,6 +161,10 @@ class MyanmarCalendar {
         32045.5;
   }
 
+  /// Converts a Julian Day to its corresponding Myanmar date.
+  ///
+  /// The [julianDay] parameter represents the Julian Day as a [double].
+  /// Returns a map containing various components of the Myanmar calendar date.
   Map<String, dynamic> julianDayToMyanmarDate(double julianDay) {
     const double solarYear = 1577917828 / 4320000; // Solar year length
     const double myanmarEpoch = 1954168.050623; // Start of Myanmar Era
@@ -191,6 +216,10 @@ class MyanmarCalendar {
     };
   }
 
+  /// Verifies and checks the details of a given Myanmar year.
+  ///
+  /// The [myanmarYear] parameter represents the Myanmar year as an integer.
+  /// Returns a map with detailed information about the year, including Watat status.
   Map<String, dynamic> checkMyanmarYear(int myanmarYear) {
     int yd = 0;
     Map<String, dynamic> previousYearData, currentYearData;
@@ -226,6 +255,10 @@ class MyanmarCalendar {
     };
   }
 
+  /// Verifies whether a given Myanmar year is a Watat year.
+  ///
+  /// The [myanmarYear] parameter represents the Myanmar year as an integer.
+  /// Returns a map with Watat details and the full moon day.
   Map<String, dynamic> checkWatat(int myanmarYear) {
     const double solarYear = 1577917828 / 4320000;
     const double lunarMonth = 1577917828 / 53433336;
@@ -265,6 +298,10 @@ class MyanmarCalendar {
     };
   }
 
+  /// Converts a number into its corresponding language-specific string.
+  ///
+  /// The [n] parameter is the number to convert.
+  /// Returns a string representation of the number in the specified language.
   String numberToString(num n) {
     String result = "";
     n = n.floor();

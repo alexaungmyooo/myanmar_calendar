@@ -32,8 +32,7 @@ class MyanmarCalendarDisplay extends StatefulWidget {
   });
 
   @override
-    State<MyanmarCalendarDisplay> createState() => _MyanmarCalendarDisplayState();
-
+  State<MyanmarCalendarDisplay> createState() => _MyanmarCalendarDisplayState();
 }
 
 class _MyanmarCalendarDisplayState extends State<MyanmarCalendarDisplay> {

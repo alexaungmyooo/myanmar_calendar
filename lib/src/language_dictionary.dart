@@ -1,7 +1,19 @@
 // lib/src/language_dictionary.dart
 
-
+/// Provides language-specific dictionaries for the Myanmar calendar.
 class LanguageDictionary {
+  /// Returns a dictionary of language-specific strings based on the given language code.
+  ///
+  /// The [lang] parameter specifies the language code as an integer:
+  /// - `0`: English
+  /// - `1`: Myanmar Unicode
+  /// - `2`: Zawgyi-One
+  /// - `3`: Mon
+  /// - `4`: Tai
+  /// - `5`: S'gaw Karen
+  ///
+  /// Returns a `Map<String, String>` containing language-specific translations
+  /// for calendar-related terms.
   static Map<String, String> getLanguageCatalog(int lang) {
     switch (lang) {
       case 0: // English
